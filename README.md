@@ -1,8 +1,6 @@
 <h1> Assigment 1 for C Data Structures and Algorthims </h1> 
 
 
-
-
 <h2> Question (15 marks) </h2>
 <div> 
 
