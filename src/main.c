@@ -33,7 +33,9 @@ int main() {
     printf("%d\t", list[i]);
     printf("%s\t", isPrime(list[i]) ? "Yes" : "No");
     printf("%s\t\t", isEven(list[i]) ? "Even" : "Odd");
-    printf("%s\t", "Test");
+    if (list[i] == maxValue(list, userSize)) {
+      printf("Max\t");
+    }
     printf("\n");
   }
 

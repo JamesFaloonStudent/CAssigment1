@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool minValue(int list[]);
+int maxValue(int list[], int size);
 
 #endif
 
