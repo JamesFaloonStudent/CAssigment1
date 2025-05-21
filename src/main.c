@@ -35,7 +35,12 @@ int main() {
     printf("%s\t\t", isEven(list[i]) ? "Even" : "Odd");
     if (list[i] == maxValue(list, userSize)) {
       printf("Max\t");
+    } else if (list[i] == minValue(list, userSize)) {
+      printf("Min\t");
+    } else {
+      printf("\t");
     }
+
     printf("\n");
   }
 

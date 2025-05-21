@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int minValue(int list[]);
+int minValue(int list[], int size);
 
 #endif

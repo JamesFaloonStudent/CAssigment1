@@ -9,6 +9,7 @@
 #include "./Average.h"
 #include "./IsPrime.h"
 #include "./Max.h"
+#include "./Min.h"
 
 int main();
 

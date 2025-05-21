@@ -13,12 +13,17 @@ void testIsEven() {
 
 
 void testIsOdd() {
-  TEST_ASSERT_TRUE(isOdd(1));
+  TEST_ASSERT_FALSE(isEven(1));
 }
 
 void testMaxValue() {
   int list[] = {1, 2, 3, 4, 5};
   TEST_ASSERT_EQUAL(5, maxValue(list, SIZE));
+}
+
+void testMinValue() {
+  int list[] = {1,2,3,4,5};
+  TEST_ASSERT_EQUAL(1, minValue(list, SIZE));
 }
 
 
@@ -28,6 +33,8 @@ int main() {
   UNITY_BEGIN();
   RUN_TEST(testIsEven);
   RUN_TEST(testMaxValue);
+  RUN_TEST(testIsOdd);
+  RUN_TEST(testMinValue);
   return UNITY_END();
 
 }

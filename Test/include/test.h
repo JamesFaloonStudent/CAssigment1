@@ -9,6 +9,7 @@
 #include "../../include/IsPrime.h"
 #include "../../include/EvenOdd.h"
 #include "../../include/Max.h"
+#include "../../include/Min.h"
 
 void setUp();
 void tearDown();
