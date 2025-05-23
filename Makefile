@@ -10,7 +10,7 @@ UTILS = $(SRC)utils/
 OBJ = ./obj/
 BIN = ./bin/
 TEST_DIR = ./Test/
-
+UNITY_DIR = ./Test/Unity/src/
 # Source files 
 MAIN = $(SRC)main.c
 PROG = $(BIN)main
@@ -36,40 +36,39 @@ prepare :
 
 # Pattern Rule for every file = ./obj/%.o build them using this command gcc -c 
 $(OBJ)%.o : $(UTILS)%.c
-	@echo $(OBJ_FILES)
 	@echo "Compiling $< to $@"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
+# Command to run the main program
 run : $(PROG)
 	@echo "Running the program..."
-	./$(PROG)
+	@./$(PROG)
 
 # Compile main Program with all object files 
 $(PROG): $(MAIN) $(OBJ_FILES)
 	@echo "Building main program..."
-	$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $^
 
 
 ### Make file part 2 Testing 
 
 $(TEST_PROG): $(TEST) $(UNITY) $(OBJ_FILES)
-	@echo "Running Tests..." 
-	$(CC) $(CFLAGS) -I$(TEST_DIR)/Unity/src/ -o $@ $^ 
+	@echo "Building Test Program..." 
+	@$(CC) $(CFLAGS) -I$(UNITY_DIR) -o $@ $^ 
 
 run_test : $(TEST_PROG)
-	./$(TEST_PROG)
+	@./$(TEST_PROG)
+
+### Part 3 Required Commands 
 
 # Clean up object files and binaries 
 clean :
 	@echo "Cleaning up..."
 	@rm -rf $(OBJ)* $(BIN)*
-	@echo "Cleaned up."
 
-
-.PHONY: all clean prepare run run_test all_test
 
 all : clean prepare $(OBJ_FILES) run
 
 all_test : clean prepare $(OBJ_FILES) run_test
 
-
+.PHONY: all clean prepare run run_test all_test
