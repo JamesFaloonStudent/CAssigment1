@@ -1,3 +1,10 @@
+/*
+* James Faloon 2025
+*
+*
+*/
+
+
 #include "../include/Main.h"
 
 
@@ -20,7 +27,7 @@ int main() {
 
   
   // Header of chart
-  printf("SR\t");
+  printf("\nSR\t");
   printf("Number\t");
   printf("Prime\t");
   printf("Odd/Even\t");
@@ -44,7 +51,8 @@ int main() {
     printf("\n");
   }
 
+  // Print the sum and average of the list 
   printf("Sum\t %d\n", Sum(list, userSize));
-  printf("Average\t %d\n", Average(list, userSize));
+  printf("Average\t %.1lf\n\n", Average(list, userSize));
 
 }

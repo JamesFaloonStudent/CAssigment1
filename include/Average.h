@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-int Average(int list[], int size);
+double Average(int list[], int size);
 
 #endif
 

@@ -1,6 +1,6 @@
 #ifndef MAIN_H 
 #define MAIN_H 
-#define SIZE 5
+#define SIZE 10
 
 #include <stdio.h>
 #include <stdbool.h>
