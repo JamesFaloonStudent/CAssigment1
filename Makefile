@@ -14,6 +14,7 @@ UNITY_DIR = ./Test/Unity/src/
 # Source files 
 MAIN = $(SRC)main.c
 PROG = $(BIN)main
+DEBUG = $(BIN)debug
 TEST = $(TEST_DIR)test.c
 TEST_PROG = $(BIN)test
 UNITY = $(TEST_DIR)Unity/src/unity.c
@@ -44,7 +45,7 @@ run : $(PROG)
 	@echo "Running the program..."
 	@./$(PROG)
 
-# Compile main Program with all object files 
+# Pattern Rule for ./bin/main to make sure the make file compiles the main program with main.c with all object filesk 
 $(PROG): $(MAIN) $(OBJ_FILES)
 	@echo "Building main program..."
 	@$(CC) $(CFLAGS) -o $@ $^
@@ -59,6 +60,13 @@ $(TEST_PROG): $(TEST) $(UNITY) $(OBJ_FILES)
 run_test : $(TEST_PROG)
 	@./$(TEST_PROG)
 
+### Part 3 Debbugable file 
+
+
+$(DEBUG) : $(MAIN) $(OBJ_FILES)
+	@$(CC) $(CFLAGS) -g $^ -o $@ 
+
+
 ### Part 3 Required Commands 
 
 # Clean up object files and binaries 
@@ -71,4 +79,5 @@ all : clean prepare $(OBJ_FILES) run
 
 all_test : clean prepare $(OBJ_FILES) run_test
 
-.PHONY: all clean prepare run run_test all_test
+all_debug : clean prepare $(OBJ_FILES) $(DEBUG)
+.PHONY: all clean prepare run run_test all_test, all_debug
